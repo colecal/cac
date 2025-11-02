@@ -1,138 +1,217 @@
-<!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Cole Aydan Calderon</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Cole Aydan Calderon - Data Analyst Portfolio" />
+    <title>Cole Aydan Calderon - Data Analyst Portfolio</title>
+    
+    <!-- Bootstrap 5.3.8 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-FrkYoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="bi bi-graph-up-arrow me-2"></i>Cole Aydan Calderon
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center min-vh-100 text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4 animate-fade-in">Cole's Data Analyst Portfolio</h1>
+                    <p class="lead fs-4 mb-5 animate-fade-in-delay">I seek to make sense of patterns in noise.</p>
+                    <a href="#projects" class="btn btn-primary btn-lg px-5 py-3 animate-fade-in-delay-2">
+                        <i class="bi bi-arrow-down-circle me-2"></i>View My Work
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Cole Aydan Calderon</a></h1>
-					</header>
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-4 fw-bold mb-3">Featured Projects</h2>
+                    <p class="lead text-muted">Exploring data to uncover meaningful insights</p>
+                </div>
+            </div>
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							
-							<h2>Cole's' Data Analyst Portfolio</h2>
-							<p>I seek to make sense of patterns in noise.</a></p>
-						</div>
-					</section>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-lg border-0 project-card">
+                        <div class="card-img-wrapper">
+                            <img src="images/bal.jpg" class="card-img-top" alt="Budget Airlines SQL Database">
+                            <div class="card-overlay"></div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title h4 fw-bold mb-3">
+                                <i class="bi bi-database text-primary me-2"></i>Budget Airlines SQL Database Construction
+                            </h3>
+                            <p class="card-text text-muted mb-4">
+                                Construction of a mock airline SQL database. Produced insightful SQL queries on the state of certain facets of the company.
+                            </p>
+                            <a href="https://github.com/colecal/BudgetAirlines_SQL/tree/main" target="_blank" class="btn btn-primary">
+                                <i class="bi bi-github me-2"></i>Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-				<!-- Wrapper -->
-					<section id="wrapper">
+                <!-- Project 2 -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-lg border-0 project-card">
+                        <div class="card-img-wrapper">
+                            <img src="images/class.png" class="card-img-top" alt="Image Classification Algorithm">
+                            <div class="card-overlay"></div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title h4 fw-bold mb-3">
+                                <i class="bi bi-cpu text-primary me-2"></i>Image Classification Algorithm
+                            </h3>
+                            <p class="card-text text-muted mb-4">
+                                Developed Image Classification Algorithm using Keras and TensorFlow. Utilized the Fashion MNIST dataset.
+                            </p>
+                            <a href="https://github.com/colecal/ImageClassificationAlg" target="_blank" class="btn btn-primary">
+                                <i class="bi bi-github me-2"></i>Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-						<!-- One -->
-							<section id="one" class="wrapper spotlight style1">
-								<div class="inner">
-									<a href="https://github.com/colecal/BudgetAirlines_SQL/tree/main" class="image"><img src="images/bal.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Budget Airlines SQL Database Construction</h2>
-										<p>Construction of a mock airline SQL database. <br /> Produced insightful SQL queries on the state of certain facets of the company</p>
-										<a href="https://github.com/colecal/BudgetAirlines_SQL/tree/main" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
+                <!-- Coming Soon Card -->
+                <div class="col-lg-12">
+                    <div class="card shadow-lg border-0 project-card bg-gradient-primary text-white">
+                        <div class="card-body p-5 text-center">
+                            <i class="bi bi-hourglass-split display-1 mb-4"></i>
+                            <h3 class="card-title h3 fw-bold mb-3">More Coming Soon!</h3>
+                            <p class="card-text fs-5 mb-4">Please come back to check out all my new projects!</p>
+                            <span class="badge bg-light text-dark fs-6 px-4 py-2">TBD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						<!-- Two -->
-							<section id="two" class="wrapper alt spotlight style2">
-								<div class="inner">
-									<a href="https://github.com/colecal/ImageClassificationAlg" class="image"><img src="images/class.png" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Image Classification Algorithm</h2>
-										<p>Developed Image Classification Algorithm using the Keras and Tensorflow.  <br /> Utilized the Fashion MNIST dataset. </p>
-										<a href="https://github.com/colecal/ImageClassificationAlg" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-4 fw-bold mb-3">Get in Touch</h2>
+                    <p class="lead">Please write to me through email or form submission below!</p>
+                </div>
+            </div>
 
-						<!-- Three 
-							<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Nullam dignissim</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
-							-->
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <form method="post" action="https://formsubmit.co/coleaydancalderon@gmail.com" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control form-control-lg" id="name" name="name" required>
+                            <div class="invalid-feedback">
+                                Please provide your name.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid email address.
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter your message.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="bi bi-send me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
 
-						<!-- four -->
-						<section id="four" class="wrapper spotlight style4">
-							<div class="inner">
-								<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-								<div class="content">
-									<h2 class="major">More Coming Soon!</h2>
-									<p>Please do come back to check out all my new projects!</p>
-									<a href="#" class="special">TBD</a>
-								</div>
-							</div>
-						</section>
+                <div class="col-lg-6">
+                    <div class="contact-info h-100 d-flex flex-column justify-content-center">
+                        <div class="contact-item mb-4">
+                            <i class="bi bi-geo-alt-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Permanent Address</h5>
+                                <p class="mb-0 text-muted">17250 Cardinal Lane<br>Troup, TX 75789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item mb-4">
+                            <i class="bi bi-telephone-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Phone</h5>
+                                <p class="mb-0 text-muted">(972) 835-6769</p>
+                            </div>
+                        </div>
+                        <div class="contact-item mb-4">
+                            <i class="bi bi-envelope-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Email</h5>
+                                <p class="mb-0">
+                                    <a href="mailto:coleaydancalderon@gmail.com" class="text-white text-decoration-none">
+                                        coleaydancalderon@gmail.com
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="bg-black text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">
+                Made by Cole Calderon | 
+                Design: <a href="http://html5up.net" class="text-white text-decoration-none" target="_blank">HTML5 UP</a>
+            </p>
+        </div>
+    </footer>
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-							<p>Please write to me through email or form submission below!</p>
-							<form method="post" action="https://formsubmit.co/coleaydancalderon@gmail.com">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-							<ul class="contact">
-								<li class="icon solid fa-home">
-									Permanent Address<br />
-									17250 Cardinal Lane<br />
-									Troup, TX 75789
-								</li>
-								<li class="icon solid fa-phone">(972) 835-6769</li>
-								<li class="icon solid fa-envelope"><a href="#">coleaydancalderon@gmail.com</a></li>
-
-							</ul>
-							<ul class="copyright">
-								<li>Made by Cole Calderon</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <!-- Bootstrap 5.3.8 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FrkYoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/custom.js"></script>
+</body>
 </html>
