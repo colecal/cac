@@ -34,28 +34,5 @@ export const projects: Project[] = [
     featured: true,
     links: []
   },
-  {
-    title: "Notebook: City Energy Patterns",
-    slug: "city-energy-patterns",
-    summary:
-      "Exploratory notebook on demand forecasting with interactive charts and narrative analysis.",
-    category: "Data Science",
-    tags: ["Jupyter", "Forecasting", "Visualization"],
-    featured: true,
-    links: [],
-    embed: {
-      type: "iframe",
-      src: "https://nbviewer.org/github/your-handle/notebooks/blob/main/energy.ipynb",
-      title: "Energy notebook"
-    }
-  },
-  {
-    title: "Signal Garden",
-    slug: "signal-garden",
-    summary:
-      "A small suite of visual experiments for signal processing and sonification.",
-    category: "Creative Tech",
-    tags: ["Audio", "DSP", "Web"],
-    links: []
   }
 ];
