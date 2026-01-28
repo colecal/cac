@@ -33,6 +33,5 @@ export const projects: Project[] = [
     status: "Product",
     featured: true,
     links: []
-  },
   }
 ];
