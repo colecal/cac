@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+---
+<BaseLayout title="Contact" lead="Simple, direct contact. No forms, no tracking.">
+  <section class="section">
+    <div class="grid two">
+      <div class="card reveal">
+        <h2>Email</h2>
+        <p>
+          Reach me at <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+        <p class="muted">
+          Best for project inquiries, collaborations, or consulting.
+        </p>
+        <div class="link-row">
+          <a class="button" href={`mailto:${site.email}`}>Open email client</a>
+          <a class="button ghost" href="/links/">See links</a>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h2>Response time</h2>
+        <p>
+          I typically respond within 1-2 business days.
+        </p>
+        <p class="muted">
+          If your message is time-sensitive, mention it in the subject line.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

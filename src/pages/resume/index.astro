@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+---
+<BaseLayout title="Resume" lead="Drop a new PDF into public/resume and this page updates automatically.">
+  <section class="section">
+    <div class="grid two">
+      <div class="card reveal">
+        <h2>Download</h2>
+        <p>
+          Download a copy of my resume below.
+        </p>
+        <a class="button" href={site.resumePath} download>
+          Download resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="embed large">
+      <iframe
+        src={`${site.resumePath}#view=FitH`}
+        title="Resume"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>

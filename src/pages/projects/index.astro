@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects } from "../../data/projects";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const grouped = projects.reduce((acc, project) => {
+  const key = project.category;
+  acc[key] = acc[key] ?? [];
+  acc[key].push(project);
+  return acc;
+}, {} as Record<string, typeof projects>);
+
+const categories = Object.keys(grouped).sort();
+---
+<BaseLayout title="Projects" lead="Grouped by field. Each project can embed notebooks, demos, or mini apps.">
+  {categories.map((category) => (
+    <section class="section" id={category.toLowerCase().replace(/\s+/g, "-")}
+    >
+      <div class="section-header">
+        <h2>{category}</h2>
+        <span class="muted">{grouped[category].length} projects</span>
+      </div>
+      <div class="grid three">
+        {grouped[category].map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </section>
+  ))}
+</BaseLayout>

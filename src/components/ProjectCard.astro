@@ -1,0 +1,47 @@
+---
+import type { Project } from "../data/projects";
+
+const { project } = Astro.props as { project: Project };
+---
+<article class="card project-card reveal">
+  <header>
+    <div>
+      <h3>{project.title}</h3>
+      <p class="muted">{project.category}</p>
+    </div>
+    {project.status ? <span class="pill">{project.status}</span> : null}
+  </header>
+
+  <p>{project.summary}</p>
+
+  {project.embed ? (
+    <div class="embed">
+      {project.embed.type === "image" ? (
+        <img src={project.embed.src} alt={project.embed.title ?? project.title} />
+      ) : (
+        <iframe
+          src={project.embed.src}
+          title={project.embed.title ?? project.title}
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      )}
+    </div>
+  ) : null}
+
+  <div class="tag-row">
+    {project.tags.map((tag) => (
+      <span class="tag">{tag}</span>
+    ))}
+  </div>
+
+  {project.links && project.links.length ? (
+    <div class="link-row">
+      {project.links.map((link) => (
+        <a class="button ghost" href={link.url} rel="noreferrer">
+          {link.label}
+        </a>
+      ))}
+    </div>
+  ) : null}
+</article>

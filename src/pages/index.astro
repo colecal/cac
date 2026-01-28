@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+import { projects } from "../data/projects";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const featured = projects.filter((project) => project.featured).slice(0, 3);
+---
+<BaseLayout showTitle={false} showHero={false} lead="">
+  <section class="section">
+    <div class="hero-bubble reveal">
+      <h2>
+        Turning Data into scalable systems that drive revenue. Operationalizing data,
+        AI, and decision-making.
+      </h2>
+      <p class="lead">
+        I build Python-first systems and minimal web experiences that ship quickly and
+        stay maintainable.
+      </p>
+      <div class="link-row center">
+        <a class="button" href="/projects/">Browse projects</a>
+        <a class="button ghost" href="/resume/">View resume</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="grid two">
+      <div class="card reveal">
+        <h2>Who am I?</h2>
+        <div class="stack">
+          <div class="point">
+            <h3>Education</h3>
+            <p class="muted">
+              I hold an M.S. in Business Analytics from The University of Texas at Dallas
+              and a B.S. in Biology from St. Edward's University, where I earned the
+              Outstanding Biology Graduate award.
+            </p>
+          </div>
+          <div class="point">
+            <h3>Drive</h3>
+            <p class="muted">
+              My research background sparked a passion for data storytelling in R, and I
+              have since expanded into Python, SQL, and modern analytics tooling across
+              coursework and real-world projects.
+            </p>
+          </div>
+          <div class="point">
+            <h3>Perspective</h3>
+            <p class="muted">
+              I bring a diligent, adaptable mindset and work well both independently and
+              on teams.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h2>Currently exploring</h2>
+        <div class="stack">
+          <div class="point">
+            <h3>Agentic AI-ware</h3>
+            <p class="muted">
+              Orchestrating multi-step agents that can plan, tool-use, and self-correct
+              in production workflows.
+            </p>
+          </div>
+          <div class="point">
+            <h3>Decision systems</h3>
+            <p class="muted">
+              Building data products that close the loop between insight, action, and
+              measurable business impact.
+            </p>
+          </div>
+          <div class="point">
+            <h3>Reliable AI pipelines</h3>
+            <p class="muted">
+              Evaluation, monitoring, and governance for models that stay safe and
+              effective over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Featured work</h2>
+      <a class="button ghost" href="/projects/">Full archive</a>
+    </div>
+    <div class="grid three">
+      {featured.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

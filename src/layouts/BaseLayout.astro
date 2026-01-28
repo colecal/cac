@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+
+const { title, description, lead, showTitle = true, showHero = true } = Astro.props;
+const pageTitle = title ? `${title} ? ${site.name}` : `${site.name} ? ${site.role}`;
+const pageDescription = description ?? site.description;
+const pathname = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    <title>{pageTitle}</title>
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand">
+          <a class="brand-mark" href="/">{site.name}</a>
+          <span class="brand-role">{site.role}</span>
+        </div>
+        <nav class="site-nav">
+          {site.nav.map((item) => (
+            <a
+              class={`nav-link ${pathname === item.href ? "active" : ""}`}
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <main class="site-main">
+        {showHero ? (
+          <section class="page-hero">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-content">
+              <p class="eyebrow">{site.tagline}</p>
+              {showTitle ? <h1>{title ?? site.role}</h1> : null}
+              {lead ? <p class="lead">{lead}</p> : null}
+            </div>
+          </section>
+        ) : null}
+
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-left">
+          <p>{site.name} ? {site.location}</p>
+          <p class="muted">{site.description}</p>
+        </div>
+        <div class="footer-right">
+          {site.socials.map((item) => (
+            <a class="footer-link" href={item.href} rel="noreferrer">
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

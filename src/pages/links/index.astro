@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { links } from "../../data/links";
+---
+<BaseLayout title="Links" lead="A curated shelf of tools, notes, and references.">
+  <section class="section">
+    <div class="grid two">
+      {links.map((item) => (
+        <a class="card link-card reveal" href={item.href} rel="noreferrer">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          {item.tags ? (
+            <div class="tag-row">
+              {item.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          ) : null}
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
