@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { site } from "../data/site";
+import { withBase } from "../utils/links";
 
 const { title, description, lead, showTitle = true, showHero = true } = Astro.props;
 const pageTitle = title ? `${title} ? ${site.name}` : `${site.name} ? ${site.role}`;
@@ -20,14 +21,14 @@ const pathname = Astro.url.pathname;
     <div class="page-shell">
       <header class="site-header">
         <div class="brand">
-          <a class="brand-mark" href="/">{site.name}</a>
+          <a class="brand-mark" href={withBase("/")}>{site.name}</a>
           <span class="brand-role">{site.role}</span>
         </div>
         <nav class="site-nav">
           {site.nav.map((item) => (
             <a
               class={`nav-link ${pathname === item.href ? "active" : ""}`}
-              href={item.href}
+              href={withBase(item.href)}
             >
               {item.label}
             </a>

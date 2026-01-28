@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../data/site";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard.astro";
+import { withBase } from "../utils/links";
 
 const featured = projects.filter((project) => project.featured).slice(0, 3);
 ---
@@ -18,8 +19,8 @@ const featured = projects.filter((project) => project.featured).slice(0, 3);
         stay maintainable.
       </p>
       <div class="link-row center">
-        <a class="button" href="/projects/">Browse projects</a>
-        <a class="button ghost" href="/resume/">View resume</a>
+        <a class="button" href={withBase("/projects/")}>Browse projects</a>
+        <a class="button ghost" href={withBase("/resume/")}>View resume</a>
       </div>
     </div>
   </section>
@@ -85,7 +86,7 @@ const featured = projects.filter((project) => project.featured).slice(0, 3);
   <section class="section">
     <div class="section-header">
       <h2>Featured work</h2>
-      <a class="button ghost" href="/projects/">Full archive</a>
+      <a class="button ghost" href={withBase("/projects/")}>Full archive</a>
     </div>
     <div class="grid three">
       {featured.map((project) => (

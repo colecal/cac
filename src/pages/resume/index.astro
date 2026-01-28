@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { site } from "../../data/site";
+import { withBase } from "../../utils/links";
 ---
 <BaseLayout title="Resume" lead="Drop a new PDF into public/resume and this page updates automatically.">
   <section class="section">
@@ -10,7 +11,7 @@ import { site } from "../../data/site";
         <p>
           Download a copy of my resume below.
         </p>
-        <a class="button" href={site.resumePath} download>
+        <a class="button" href={withBase(site.resumePath)} download>
           Download resume
         </a>
       </div>
@@ -20,7 +21,7 @@ import { site } from "../../data/site";
   <section class="section">
     <div class="embed large">
       <iframe
-        src={`${site.resumePath}#view=FitH`}
+        src={`${withBase(site.resumePath)}#view=FitH`}
         title="Resume"
         loading="lazy"
       ></iframe>

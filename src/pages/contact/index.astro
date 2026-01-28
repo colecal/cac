@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { site } from "../../data/site";
+import { withBase } from "../../utils/links";
 ---
 <BaseLayout title="Contact" lead="Simple, direct contact. No forms, no tracking.">
   <section class="section">
@@ -15,7 +16,7 @@ import { site } from "../../data/site";
         </p>
         <div class="link-row">
           <a class="button" href={`mailto:${site.email}`}>Open email client</a>
-          <a class="button ghost" href="/links/">See links</a>
+          <a class="button ghost" href={withBase("/links/")}>See links</a>
         </div>
       </div>
 
