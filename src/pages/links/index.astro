@@ -24,34 +24,37 @@ import { aiNews } from "../../data/aiNews";
       </div>
 
       <div class="card reveal">
-        <h2>AI / LLM news</h2>
-        <p class="muted">
-          Auto-updated weekly from Google AI, OpenAI, and arXiv cs.AI.
-        </p>
-        {aiNews.length ? (
-          <div class="tag-row">
-            <span class="tag">Weekly</span>
-            <span class="tag">RSS</span>
-            <span class="tag">AI / LLM</span>
-          </div>
-        ) : null}
+        <h2>Elsewhere</h2>
+        <p class="muted">GitHub, email, and other links live in the footer for now.</p>
+        <div class="tag-row">
+          <span class="tag">Remote</span>
+          <span class="tag">US Citizen</span>
+          <span class="tag">Open to AI Engineer roles</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
+    <div class="section-header">
+      <h2>AI / LLM news</h2>
+      <span class="muted">Auto-updated weekly (Google AI, OpenAI, arXiv cs.AI)</span>
+    </div>
+
     <div class="grid two">
       {aiNews.length ? (
         aiNews.slice(0, 12).map((item) => (
           <a class="card link-card reveal" href={item.url} rel="noreferrer">
-            <h3>{item.title}</h3>
-            <p class="muted">
-              {item.source}{item.date ? ` · ${item.date}` : ""}
-            </p>
-            <div class="tag-row">
-              <span class="tag">AI</span>
-              <span class="tag">LLM</span>
-              <span class="tag">News</span>
+            <div class="embed" style="margin-top: 0;">
+              <iframe
+                src={item.url}
+                title={item.title}
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div style="margin-top: 14px;">
+              <h3>{item.title}</h3>
+              <p class="muted">{item.source}{item.date ? ` · ${item.date}` : ""}</p>
             </div>
           </a>
         ))
