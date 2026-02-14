@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { links } from "../../data/links";
 import { aiNews } from "../../data/aiNews";
 ---
-<BaseLayout title="Links" lead="A curated shelf of tools, notes, and references.">
+
+<BaseLayout title="Links" lead="Connect + current reading.">
   <section class="section">
     <div class="grid two">
       <div class="card reveal">
@@ -26,40 +26,41 @@ import { aiNews } from "../../data/aiNews";
       <div class="card reveal">
         <h2>AI / LLM news</h2>
         <p class="muted">
-          A rolling list of links (planned: auto-updated). Tell me which sources you want and how
-          often.
+          Auto-updated weekly from Google AI, OpenAI, and arXiv cs.AI.
         </p>
         {aiNews.length ? (
-          <ul class="list">
-            {aiNews.slice(0, 10).map((item) => (
-              <li>
-                <a href={item.url} rel="noreferrer">{item.title}</a>
-                <span class="muted"> — {item.source}{item.date ? ` · ${item.date}` : ""}</span>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p class="muted"><em>No items yet.</em></p>
-        )}
+          <div class="tag-row">
+            <span class="tag">Weekly</span>
+            <span class="tag">RSS</span>
+            <span class="tag">AI / LLM</span>
+          </div>
+        ) : null}
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="grid two">
-      {links.map((item) => (
-        <a class="card link-card reveal" href={item.href} rel="noreferrer">
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-          {item.tags ? (
+      {aiNews.length ? (
+        aiNews.slice(0, 12).map((item) => (
+          <a class="card link-card reveal" href={item.url} rel="noreferrer">
+            <h3>{item.title}</h3>
+            <p class="muted">
+              {item.source}{item.date ? ` · ${item.date}` : ""}
+            </p>
             <div class="tag-row">
-              {item.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
+              <span class="tag">AI</span>
+              <span class="tag">LLM</span>
+              <span class="tag">News</span>
             </div>
-          ) : null}
-        </a>
-      ))}
+          </a>
+        ))
+      ) : (
+        <div class="card reveal">
+          <h3>No news items yet</h3>
+          <p class="muted">They’ll appear here after the weekly updater runs.</p>
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>
