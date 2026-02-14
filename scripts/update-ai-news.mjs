@@ -4,11 +4,17 @@ import path from "path";
 const sources = [
   { source: "Google AI", feed: "https://blog.google/technology/ai/rss/" },
   { source: "OpenAI", feed: "https://openai.com/blog/rss.xml" },
-  { source: "arXiv cs.AI", feed: "https://export.arxiv.org/rss/cs.AI" },
+  // export.arxiv.org currently returns a channel-only RSS doc (no items) on this endpoint;
+  // rss.arxiv.org includes items.
+  { source: "arXiv cs.AI", feed: "http://rss.arxiv.org/rss/cs.AI" },
 ];
 
 function stripHtml(s) {
-  return s
+  const noCdata = s
+    .replace(/^<!\[CDATA\[/, "")
+    .replace(/\]\]>$/, "");
+
+  return noCdata
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
     .replace(/<[^>]+>/g, "")
@@ -57,7 +63,8 @@ function parseFeed(xmlText) {
 }
 
 function pickTitle(item) {
-  return stripHtml(decodeEntities(getTag(item.raw, "title")));
+  const t = decodeEntities(getTag(item.raw, "title"));
+  return stripHtml(t);
 }
 
 function pickUrl(item) {
@@ -125,13 +132,48 @@ async function fetchFeed(url) {
   return await res.text();
 }
 
+function pickDiverse(items, { perSource = 4, total = 12 } = {}) {
+  const bySource = new Map();
+  for (const it of items) {
+    const arr = bySource.get(it.source) ?? [];
+    arr.push(it);
+    bySource.set(it.source, arr);
+  }
+  // Ensure each bucket is date-sorted
+  for (const [k, arr] of bySource.entries()) {
+    bySource.set(k, sortByDateDesc(arr));
+  }
+
+  const order = sources.map((s) => s.source);
+  const out = [];
+
+  // Round-robin up to perSource per feed
+  for (let i = 0; i < perSource; i++) {
+    for (const s of order) {
+      const arr = bySource.get(s) ?? [];
+      if (arr[i]) out.push(arr[i]);
+      if (out.length >= total) return uniqByUrl(out);
+    }
+  }
+
+  // Fill remaining by global recency
+  const remaining = sortByDateDesc(uniqByUrl(items)).filter(
+    (x) => !out.some((y) => y.url === x.url)
+  );
+  for (const it of remaining) {
+    out.push(it);
+    if (out.length >= total) break;
+  }
+  return uniqByUrl(out);
+}
+
 async function main() {
   const all = [];
   for (const s of sources) {
     try {
       const xml = await fetchFeed(s.feed);
       const items = parseFeed(xml)
-        .slice(0, 12)
+        .slice(0, 30)
         .map((item) => toNewsItem(item, s.source))
         .filter(Boolean);
       all.push(...items);
@@ -140,10 +182,12 @@ async function main() {
     }
   }
 
-  const items = sortByDateDesc(uniqByUrl(all)).slice(0, 20);
+  const deduped = uniqByUrl(all);
+  const diverse = pickDiverse(deduped, { perSource: 4, total: 12 });
+
   const outPath = path.join(process.cwd(), "src", "data", "aiNews.ts");
-  fs.writeFileSync(outPath, emitTs(items));
-  console.log(`Wrote ${items.length} items to ${outPath}`);
+  fs.writeFileSync(outPath, emitTs(diverse));
+  console.log(`Wrote ${diverse.length} items to ${outPath}`);
 }
 
 main().catch((e) => {
