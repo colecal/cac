@@ -34,9 +34,9 @@ import { caseStudies } from "../../data/caseStudies";
               )}
 
               {cs.sections.map((s) => (
-                <div>
-                  <h3>{s.heading}</h3>
-                  <ul>
+                <div class="cs-section">
+                  <h3 class="cs-heading">{s.heading}</h3>
+                  <ul class="cs-list">
                     {s.bullets.map((b) => (
                       <li>{b}</li>
                     ))}
