@@ -14,7 +14,7 @@ import { caseStudies } from "../../data/caseStudies";
 
       <div class="stack">
         {caseStudies.map((cs) => (
-          <details class="details">
+          <details class="details" id={cs.id}>
             <summary>
               <span class="details-title"><strong>{cs.title}</strong></span>
               <span class="details-chevron" aria-hidden="true"></span>

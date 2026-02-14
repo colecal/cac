@@ -13,7 +13,6 @@ export const caseStudies: CaseStudy[] = [
     id: "revetting-pipeline",
     tldr:
       "Built a re-vetting pipeline that gave previously passed (‘dead’) claims a second chance by prioritizing them for re-review; supported parallel work across the analyst team and contributed to $1.7M+ invoiced revenue.",
-    impact: ["$1.7M+ invoiced revenue impact (through recoveries enabled by the workflow)"],
     sections: [
       {
         heading: "Users",

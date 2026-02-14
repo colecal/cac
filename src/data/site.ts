@@ -1,10 +1,10 @@
 export const site = {
   name: "Cole Calderon",
-  role: "Data Scientist",
-  tagline: "",
+  role: "AI Engineer | LLM/Agent Engineer",
+  tagline: "Revenue-driving AI systems",
   description:
-    "Minimal, animated portfolio built with Astro. Update data files to publish new work.",
-  location: "Allen, Texas",
+    "AI Engineer building production LLM/agent workflows and data systems that turn operational complexity into measurable business impact.",
+  location: "Allen, TX (Remote)",
   email: "coleaydancalderon@gmail.com",
   resumePath: "/resume/resume.pdf",
   nav: [

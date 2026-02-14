@@ -1,22 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { site } from "../data/site";
-import { projects } from "../data/projects";
-import ProjectCard from "../components/ProjectCard.astro";
 import { withBase } from "../utils/links";
-
-const featured = projects.filter((project) => project.featured).slice(0, 3);
 ---
+
 <BaseLayout showTitle={false} showHero={false} lead="">
   <section class="section">
     <div class="hero-bubble reveal">
-      <h2>
-        Turning Data into scalable systems that drive revenue. Operationalizing data,
-        AI, and decision-making.
-      </h2>
+      <h2>AI Engineer building LLM/agent systems that drive measurable business impact.</h2>
       <p class="lead">
-        I build Python-first systems and minimal web experiences that ship quickly and
-        stay maintainable.
+        Python + SQL expert. I ship production workflows (LLMOps, local LLM serving, vector DBs)
+        that turn operational complexity into reliable, auditable decision support.
       </p>
       <div class="link-row center">
         <a class="button" href={withBase("/projects/")}>Browse projects</a>
@@ -24,75 +17,50 @@ const featured = projects.filter((project) => project.featured).slice(0, 3);
       </div>
     </div>
   </section>
+
   <section class="section">
-    <div class="grid two">
+    <div class="grid three">
       <div class="card reveal">
-        <h2>Who am I?</h2>
-        <div class="stack">
-          <div class="point">
-            <h3>Education</h3>
-            <p class="muted">
-              I hold an M.S. in Business Analytics from The University of Texas at Dallas
-              and a B.S. in Biology from St. Edward's University, where I earned the
-              Outstanding Biology Graduate award.
-            </p>
-          </div>
-          <div class="point">
-            <h3>Drive</h3>
-            <p class="muted">
-              My research background sparked a passion for data storytelling in R, and I
-              have since expanded into Python, SQL, and modern analytics tooling across
-              coursework and real-world projects.
-            </p>
-          </div>
-          <div class="point">
-            <h3>Perspective</h3>
-            <p class="muted">
-              I bring a diligent, adaptable mindset and work well both independently and
-              on teams.
-            </p>
-          </div>
-        </div>
+        <h2>Impact</h2>
+        <ul class="list">
+          <li><strong>$1.7M+</strong> invoiced revenue enabled (re‑vetting pipeline)</li>
+          <li>Revenue grew <strong>$300–500k/mo → $1.0–1.3M/mo</strong></li>
+          <li>Claim selection rate improved <strong>~10–20% → ~25–35%</strong></li>
+        </ul>
       </div>
       <div class="card reveal">
-        <h2>Currently exploring</h2>
-        <div class="stack">
-          <div class="point">
-            <h3>Agentic AI-ware</h3>
-            <p class="muted">
-              Orchestrating multi-step agents that can plan, tool-use, and self-correct
-              in production workflows.
-            </p>
-          </div>
-          <div class="point">
-            <h3>Decision systems</h3>
-            <p class="muted">
-              Building data products that close the loop between insight, action, and
-              measurable business impact.
-            </p>
-          </div>
-          <div class="point">
-            <h3>Reliable AI pipelines</h3>
-            <p class="muted">
-              Evaluation, monitoring, and governance for models that stay safe and
-              effective over time.
-            </p>
-          </div>
-        </div>
+        <h2>What I build</h2>
+        <ul class="list">
+          <li>LLM playbooks: tribal knowledge → structured, executable guidance</li>
+          <li>Agent SDK foundations: tool routing, schemas, guardrails, observability</li>
+          <li>Operational analytics: KPI scorecards with incentive-safe metrics</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h2>Stack</h2>
+        <ul class="list">
+          <li><strong>Python</strong> (expert), <strong>SQL</strong> (expert)</li>
+          <li>Docker, Azure DevOps</li>
+          <li>LLMOps, Ollama, vLLM, local LLMs, Milvus</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header">
-      <h2>Featured work</h2>
+      <h2>Featured case studies</h2>
       <a class="button ghost" href={withBase("/projects/")}>Full archive</a>
     </div>
-    <div class="grid three">
-      {featured.map((project) => (
-        <ProjectCard project={project} />
-      ))}
+    <div class="grid two">
+      <a class="card link-card reveal" href={withBase("/projects/#revetting-pipeline")}>
+        <h3>$1.7M Recovery Re‑vetting Pipeline</h3>
+        <p class="muted">A prioritization workflow that gives previously passed claims a second chance—built for daily/weekly throughput with strong guardrails.</p>
+      </a>
+      <a class="card link-card reveal" href={withBase("/projects/#agent-sdk")}>
+        <h3>Agent SDK / LLM Pipeline Foundation</h3>
+        <p class="muted">Reusable framework for tool routing, modular workflows, deterministic schemas, and production observability.</p>
+      </a>
     </div>
   </section>
-
 </BaseLayout>
