@@ -240,6 +240,30 @@ p {
   gap: 16px;
 }
 
+.details {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.details summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.details summary::-webkit-details-marker {
+  display: none;
+}
+
+.details[open] {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.details-body {
+  margin-top: 0.75rem;
+}
+
 .point h3 {
   font-size: 1rem;
   margin-bottom: 6px;

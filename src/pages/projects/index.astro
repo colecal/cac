@@ -1,30 +1,53 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { projects } from "../../data/projects";
-import ProjectCard from "../../components/ProjectCard.astro";
-
-const grouped = projects.reduce((acc, project) => {
-  const key = project.category;
-  acc[key] = acc[key] ?? [];
-  acc[key].push(project);
-  return acc;
-}, {} as Record<string, typeof projects>);
-
-const categories = Object.keys(grouped).sort();
+import { caseStudies } from "../../data/caseStudies";
 ---
-<BaseLayout title="Projects" lead="Grouped by field. Each project can embed notebooks, demos, or mini apps.">
-  {categories.map((category) => (
-    <section class="section" id={category.toLowerCase().replace(/\s+/g, "-")}
-    >
-      <div class="section-header">
-        <h2>{category}</h2>
-        <span class="muted">{grouped[category].length} projects</span>
-      </div>
-      <div class="grid three">
-        {grouped[category].map((project) => (
-          <ProjectCard project={project} />
+
+<BaseLayout title="Projects" lead="A single-page archive. Expand a project to see the sanitized case study.">
+  <section class="section">
+    <div class="card reveal">
+      <h2>Selected case studies</h2>
+      <p class="muted">
+        These are intentionally sanitized: no client details, no proprietary recovery mechanics.
+        They focus on system design, guardrails, and measurable impact.
+      </p>
+
+      <div class="stack">
+        {caseStudies.map((cs) => (
+          <details class="details">
+            <summary>
+              <strong>{cs.title}</strong>
+            </summary>
+            <div class="details-body">
+              <p class="lead" style="margin-top: 0.5rem;">{cs.tldr}</p>
+
+              {cs.impact && (
+                <div>
+                  <h3>Impact</h3>
+                  <ul>
+                    {cs.impact.map((x) => (
+                      <li>{x}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {cs.sections.map((s) => (
+                <div>
+                  <h3>{s.heading}</h3>
+                  <ul>
+                    {s.bullets.map((b) => (
+                      <li>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
+              {cs.notes && <p class="muted"><em>{cs.notes}</em></p>}
+            </div>
+          </details>
         ))}
       </div>
-    </section>
-  ))}
+    </div>
+  </section>
 </BaseLayout>
