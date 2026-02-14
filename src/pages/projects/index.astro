@@ -16,7 +16,8 @@ import { caseStudies } from "../../data/caseStudies";
         {caseStudies.map((cs) => (
           <details class="details">
             <summary>
-              <strong>{cs.title}</strong>
+              <span class="details-title"><strong>{cs.title}</strong></span>
+              <span class="details-chevron" aria-hidden="true"></span>
             </summary>
             <div class="details-body">
               <p class="lead" style="margin-top: 0.5rem;">{cs.tldr}</p>

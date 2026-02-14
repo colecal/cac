@@ -39,14 +39,6 @@ export const caseStudies: CaseStudy[] = [
           "Human-in-the-loop: analyst review before action",
         ],
       },
-      {
-        heading: "What I’d improve next",
-        bullets: [
-          "Add a closed-loop feedback system from analyst dispositions to ranking",
-          "Monitoring/alerting for drift (claim mix changes) and threshold health",
-          "Formal evaluation metrics (precision/recall on ‘worth re-reviewing’)",
-        ],
-      },
     ],
   },
   {
@@ -89,14 +81,6 @@ export const caseStudies: CaseStudy[] = [
           "Prompt rules to avoid hallucinated policy",
           "Iterative evaluation against known scenarios",
           "Human review + feedback loop",
-        ],
-      },
-      {
-        heading: "What I’d improve next",
-        bullets: [
-          "Formal eval set + regression tests for playbook outputs",
-          "Citations/attribution for each recommendation",
-          "Confidence flags to guide escalation",
         ],
       },
     ],
@@ -149,14 +133,6 @@ export const caseStudies: CaseStudy[] = [
           "Monitoring for drift/failure patterns",
         ],
       },
-      {
-        heading: "What I’d improve next",
-        bullets: [
-          "Automated eval harness per workflow (golden cases + scoring)",
-          "Policy-driven routing constraints",
-          "Cost/latency budgets per workflow",
-        ],
-      },
     ],
   },
   {
@@ -197,14 +173,6 @@ export const caseStudies: CaseStudy[] = [
           "Time-window controls",
           "Anomaly checks",
           "Separate volume vs quality to avoid broken incentives",
-        ],
-      },
-      {
-        heading: "What I’d improve next",
-        bullets: [
-          "Automated metric lineage + DQ reporting",
-          "Cohort/segment views (mix shifts, seasonality)",
-          "Proactive anomaly alerts",
         ],
       },
     ],
