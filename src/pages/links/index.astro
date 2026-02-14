@@ -1,8 +1,50 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { links } from "../../data/links";
+import { aiNews } from "../../data/aiNews";
 ---
 <BaseLayout title="Links" lead="A curated shelf of tools, notes, and references.">
+  <section class="section">
+    <div class="grid two">
+      <div class="card reveal">
+        <h2>LinkedIn</h2>
+        <p class="muted">Connect with me here.</p>
+        <div style="margin-top: 12px;">
+          <div
+            class="badge-base LI-profile-badge"
+            data-locale="en_US"
+            data-size="medium"
+            data-theme="dark"
+            data-type="VERTICAL"
+            data-vanity="cole-calderon"
+            data-version="v1"
+          ></div>
+        </div>
+        <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+      </div>
+
+      <div class="card reveal">
+        <h2>AI / LLM news</h2>
+        <p class="muted">
+          A rolling list of links (planned: auto-updated). Tell me which sources you want and how
+          often.
+        </p>
+        {aiNews.length ? (
+          <ul class="list">
+            {aiNews.slice(0, 10).map((item) => (
+              <li>
+                <a href={item.url} rel="noreferrer">{item.title}</a>
+                <span class="muted"> — {item.source}{item.date ? ` · ${item.date}` : ""}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="muted"><em>No items yet.</em></p>
+        )}
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="grid two">
       {links.map((item) => (

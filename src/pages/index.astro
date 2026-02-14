@@ -6,14 +6,16 @@ import { withBase } from "../utils/links";
 <BaseLayout showTitle={false} showHero={false} lead="">
   <section class="section">
     <div class="hero-bubble reveal">
-      <h2>AI Engineer building LLM/agent systems that drive measurable business impact.</h2>
+      <p class="eyebrow">AI Engineer · LLM/Agent Systems</p>
+      <h2>Building production LLM workflows that turn operational complexity into revenue.</h2>
       <p class="lead">
-        Python + SQL expert. I ship production workflows (LLMOps, local LLM serving, vector DBs)
-        that turn operational complexity into reliable, auditable decision support.
+        Python + SQL expert. I ship reliable, auditable decision support with LLMOps, local LLM
+        serving, and vector databases—built for real teams, real throughput, and real constraints.
       </p>
       <div class="link-row center">
         <a class="button" href={withBase("/projects/")}>Browse projects</a>
         <a class="button ghost" href={withBase("/resume/")}>View resume</a>
+        <a class="button ghost" href={withBase("/links/")}>Links</a>
       </div>
     </div>
   </section>
@@ -23,21 +25,23 @@ import { withBase } from "../utils/links";
       <div class="card reveal">
         <h2>Impact</h2>
         <ul class="list">
-          <li><strong>$1.7M+</strong> invoiced revenue enabled (re‑vetting pipeline)</li>
+          <li>Enabled <strong>$1.7M+</strong> invoiced revenue (re‑vetting pipeline)</li>
           <li>Revenue grew <strong>$300–500k/mo → $1.0–1.3M/mo</strong></li>
-          <li>Claim selection rate improved <strong>~10–20% → ~25–35%</strong></li>
+          <li>New lead generation rate improved <strong>~10–20% → ~25–35%</strong></li>
         </ul>
       </div>
+
       <div class="card reveal">
         <h2>What I build</h2>
         <ul class="list">
-          <li>LLM playbooks: tribal knowledge → structured, executable guidance</li>
-          <li>Agent SDK foundations: tool routing, schemas, guardrails, observability</li>
-          <li>Operational analytics: KPI scorecards with incentive-safe metrics</li>
+          <li><strong>LLM playbooks</strong>: tribal knowledge → structured, executable guidance</li>
+          <li><strong>Agent SDK foundations</strong>: tool routing, schemas, guardrails, observability</li>
+          <li><strong>Operational analytics</strong>: KPI scorecards with incentive-safe metrics</li>
         </ul>
       </div>
+
       <div class="card reveal">
-        <h2>Stack</h2>
+        <h2>Core stack</h2>
         <ul class="list">
           <li><strong>Python</strong> (expert), <strong>SQL</strong> (expert)</li>
           <li>Docker, Azure DevOps</li>
@@ -55,11 +59,17 @@ import { withBase } from "../utils/links";
     <div class="grid two">
       <a class="card link-card reveal" href={withBase("/projects/#revetting-pipeline")}>
         <h3>$1.7M Recovery Re‑vetting Pipeline</h3>
-        <p class="muted">A prioritization workflow that gives previously passed claims a second chance—built for daily/weekly throughput with strong guardrails.</p>
+        <p class="muted">
+          A prioritization workflow that gives previously passed claims a second chance—built for
+          daily/weekly throughput with strong guardrails.
+        </p>
       </a>
-      <a class="card link-card reveal" href={withBase("/projects/#agent-sdk")}>
-        <h3>Agent SDK / LLM Pipeline Foundation</h3>
-        <p class="muted">Reusable framework for tool routing, modular workflows, deterministic schemas, and production observability.</p>
+      <a class="card link-card reveal" href={withBase("/projects/#llm-playbooks")}>
+        <h3>LLM Playbooks (Tribal Knowledge → Executable Plans)</h3>
+        <p class="muted">
+          Structured playbooks for analysts and onboarding: constrained outputs, evaluation loops,
+          and human-in-the-loop safety.
+        </p>
       </a>
     </div>
   </section>
