@@ -9,14 +9,14 @@ export type NewsItem = {
 export const aiNews: NewsItem[] = [
   { title: `Gemini 3 Deep Think: Advancing science, research and engineering`, url: `https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/`, source: `Google AI`, date: `2026-02-12` },
   { title: `GPT-5.2 derives a new result in theoretical physics`, url: `https://openai.com/index/new-result-theoretical-physics`, source: `OpenAI`, date: `2026-02-13` },
+  { title: `GT-HarmBench: Benchmarking AI Safety Risks Through the Lens of Game Theory`, url: `https://arxiv.org/abs/2602.12316`, source: `arXiv cs.AI`, date: `2026-02-16` },
   { title: `9 fun questions to try asking Google Photos`, url: `https://blog.google/products-and-platforms/products/photos/ask-button-ask-photos-tips/`, source: `Google AI`, date: `2026-02-10` },
   { title: `Introducing Lockdown Mode and Elevated Risk labels in ChatGPT`, url: `https://openai.com/index/introducing-lockdown-mode-and-elevated-risk-labels-in-chatgpt`, source: `OpenAI`, date: `2026-02-13` },
+  { title: `A Theoretical Framework for Adaptive Utility-Weighted Benchmarking`, url: `https://arxiv.org/abs/2602.12356`, source: `arXiv cs.AI`, date: `2026-02-16` },
   { title: `Helping kids and teens learn and grow online on Safer Internet Day`, url: `https://blog.google/innovation-and-ai/technology/safety-security/safer-internet-day-2026-kids-teens/`, source: `Google AI`, date: `2026-02-10` },
   { title: `Beyond rate limits: scaling access to Codex and Sora`, url: `https://openai.com/index/beyond-rate-limits`, source: `OpenAI`, date: `2026-02-13` },
+  { title: `Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting`, url: `https://arxiv.org/abs/2602.12389`, source: `arXiv cs.AI`, date: `2026-02-16` },
   { title: `Natively Adaptive Interfaces: A new framework for AI accessibility`, url: `https://blog.google/company-news/outreach-and-initiatives/accessibility/natively-adaptive-interfaces-ai-accessibility/`, source: `Google AI`, date: `2026-02-05` },
   { title: `Scaling social science research`, url: `https://openai.com/index/scaling-social-science-research`, source: `OpenAI`, date: `2026-02-13` },
-  { title: `Introducing GPT-5.3-Codex-Spark`, url: `https://openai.com/index/introducing-gpt-5-3-codex-spark`, source: `OpenAI`, date: `2026-02-12` },
-  { title: `Harness engineering: leveraging Codex in an agent-first world`, url: `https://openai.com/index/harness-engineering`, source: `OpenAI`, date: `2026-02-11` },
-  { title: `Testing ads in ChatGPT`, url: `https://openai.com/index/testing-ads-in-chatgpt`, source: `OpenAI`, date: `2026-02-09` },
-  { title: `Bringing ChatGPT to GenAI.mil`, url: `https://openai.com/index/bringing-chatgpt-to-genaimil`, source: `OpenAI`, date: `2026-02-09` },
+  { title: `Intent-Driven Smart Manufacturing Integrating Knowledge Graphs and Large Language Models`, url: `https://arxiv.org/abs/2602.12419`, source: `arXiv cs.AI`, date: `2026-02-16` },
 ];
