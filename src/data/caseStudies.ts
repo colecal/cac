@@ -4,6 +4,9 @@ export type CaseStudy = {
   tldr: string;
   impact?: string[];
   notes?: string;
+  demoUrl?: string;
+  repoUrl?: string;
+  tags?: string[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -51,5 +54,48 @@ export const caseStudies: CaseStudy[] = [
       "Separated volume and quality metrics to prevent broken incentives",
       "Rolled up from individual analysts to org-level with daily/weekly refresh",
     ],
+  },
+];
+
+export type PersonalProject = {
+  title: string;
+  id: string;
+  tldr: string;
+  bullets: string[];
+  demoUrl?: string;
+  repoUrl: string;
+  tags: string[];
+};
+
+export const personalProjects: PersonalProject[] = [
+  {
+    title: "FastAPI Agent SDK Mini",
+    id: "fastapi-agent-sdk",
+    tldr:
+      "A from-scratch agent loop implementation demonstrating the core architecture behind production LLM systems: tool registry, typed schemas, permission gating, structured controller output, and per-step tracing — all exposed via a FastAPI backend with a live trace viewer UI.",
+    bullets: [
+      "Full plan → tool selection → execute → observe → iterate loop in clean, readable Python",
+      "Pydantic-validated tool schemas and ToolChoice output — the same pattern used in production agent work",
+      "In-memory trace store with API + UI visualization; supports real LLMs or deterministic mock mode",
+      "Offline eval harness with golden cases — demonstrates how to test agent behavior systematically",
+    ],
+    demoUrl: "https://colecal.github.io/FastAPI-Agent-SDK-Mini/",
+    repoUrl: "https://github.com/colecal/FastAPI-Agent-SDK-Mini",
+    tags: ["Python", "FastAPI", "LLM Systems", "Agent Architecture", "Pydantic"],
+  },
+  {
+    title: "E-Commerce Ops Warehouse Query Showcase",
+    id: "ecommerce-warehouse",
+    tldr:
+      "A local-first analytics showcase built on a realistic Postgres warehouse schema — demonstrating the SQL depth and data architecture knowledge that sits underneath production operational systems.",
+    bullets: [
+      "Normalized warehouse schema: customers, orders, payments, refunds, shipments, web events",
+      "Curated advanced SQL: cohort retention, LTV by cohort, AOV rolling windows, conversion funnel, revenue anomaly detection (z-score), shipping SLA percentiles",
+      "FastAPI backend with curated-only query execution (no arbitrary SQL) + Swagger docs",
+      "Static GitHub Pages demo — iframeable, no backend required",
+    ],
+    demoUrl: "https://colecal.github.io/E-Commerce-Ops-Warehouse-Query-Showcase/",
+    repoUrl: "https://github.com/colecal/E-Commerce-Ops-Warehouse-Query-Showcase",
+    tags: ["Python", "PostgreSQL", "FastAPI", "Data Architecture", "Analytics SQL"],
   },
 ];

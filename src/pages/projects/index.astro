@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { caseStudies } from "../../data/caseStudies";
+import { caseStudies, personalProjects } from "../../data/caseStudies";
 ---
 
-<BaseLayout title="Projects" lead="A single-page archive. Expand a project to see the case study.">
+<BaseLayout title="Projects" lead="Work case studies and personal builds.">
   <section class="section">
     <div class="card reveal">
-      <h2>Selected case studies</h2>
+      <h2>Work case studies</h2>
       <p class="muted">
         Intentionally high-level: no client details, no proprietary mechanics.
         Focused on what was built, why it mattered, and the impact it had.
@@ -40,4 +40,101 @@ import { caseStudies } from "../../data/caseStudies";
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Personal builds</h2>
+    </div>
+    <p class="muted" style="margin-bottom: 2rem;">
+      Open-source projects demonstrating production-grade AI system design and the data architecture knowledge that supports it.
+    </p>
+
+    <div class="stack">
+      {personalProjects.map((p) => (
+        <div class="card reveal" id={p.id}>
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+            <div>
+              <h3 style="margin: 0 0 0.5rem;">{p.title}</h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem;">
+                {p.tags.map((t) => (
+                  <span class="tag">{t}</span>
+                ))}
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-shrink: 0;">
+              <a class="button ghost small" href={p.repoUrl} target="_blank" rel="noopener">GitHub</a>
+              {p.demoUrl && (
+                <a class="button small" href={p.demoUrl} target="_blank" rel="noopener">Live demo ↗</a>
+              )}
+            </div>
+          </div>
+
+          <p>{p.tldr}</p>
+
+          <ul>
+            {p.bullets.map((b) => (
+              <li>{b}</li>
+            ))}
+          </ul>
+
+          {p.demoUrl && (
+            <div class="embed-wrap" style="margin-top: 1.5rem;">
+              <div class="embed-label">Interactive demo</div>
+              <iframe
+                src={p.demoUrl}
+                title={p.title + " demo"}
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.07);
+    color: var(--color-muted, #aaa);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .embed-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .embed-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted, #aaa);
+    padding: 0.5rem 0.75rem;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  iframe {
+    width: 100%;
+    height: 520px;
+    border: none;
+    display: block;
+    background: #fff;
+  }
+
+  .button.small {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.85rem;
+  }
+</style>
