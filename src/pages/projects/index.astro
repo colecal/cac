@@ -3,13 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { caseStudies } from "../../data/caseStudies";
 ---
 
-<BaseLayout title="Projects" lead="A single-page archive. Expand a project to see the sanitized case study.">
+<BaseLayout title="Projects" lead="A single-page archive. Expand a project to see the case study.">
   <section class="section">
     <div class="card reveal">
       <h2>Selected case studies</h2>
       <p class="muted">
-        These are intentionally sanitized: no client details, no proprietary recovery mechanics.
-        They focus on system design, guardrails, and measurable impact.
+        Intentionally high-level: no client details, no proprietary mechanics.
+        Focused on what was built, why it mattered, and the impact it had.
       </p>
 
       <div class="stack">
@@ -32,17 +32,6 @@ import { caseStudies } from "../../data/caseStudies";
                   </ul>
                 </div>
               )}
-
-              {cs.sections.map((s) => (
-                <div class="cs-section">
-                  <h3 class="cs-heading">{s.heading}</h3>
-                  <ul class="cs-list">
-                    {s.bullets.map((b) => (
-                      <li>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
 
               {cs.notes && <p class="muted"><em>{cs.notes}</em></p>}
             </div>

@@ -3,177 +3,53 @@ export type CaseStudy = {
   id: string;
   tldr: string;
   impact?: string[];
-  sections: { heading: string; bullets: string[] }[];
   notes?: string;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "$1.7M Recovery Re-vetting Pipeline (Sanitized)",
+    title: "Operational Re-vetting Pipeline",
     id: "revetting-pipeline",
     tldr:
-      "Built a re-vetting pipeline that gave previously passed (‘dead’) claims a second chance by prioritizing them for re-review; supported parallel work across the analyst team and contributed to $1.7M+ invoiced revenue.",
-    sections: [
-      {
-        heading: "Users",
-        bullets: ["Recovery analysts", "Leadership (visibility into throughput and outcomes)"],
-      },
-      {
-        heading: "Inputs (high-level)",
-        bullets: ["Historically passed claims", "Claim metadata + operational signals used for prioritization (kept high-level)"],
-      },
-      {
-        heading: "Outputs",
-        bullets: ["Prioritized queue of candidates for re-review", "Supporting fields to speed up analyst review (sanitized)"],
-      },
-      {
-        heading: "Scale",
-        bullets: ["Designed for ongoing daily/weekly throughput", "Supports multiple analysts working in parallel"],
-      },
-      {
-        heading: "Guardrails",
-        bullets: [
-          "Data validation checks",
-          "Logic thresholds to prevent junk prioritization",
-          "Human-in-the-loop: analyst review before action",
-        ],
-      },
+      "Built a prioritization pipeline that gave previously written-off claims a second chance by surfacing them for re-review—supporting parallel analyst throughput with guardrails throughout.",
+    impact: [
+      "Directly enabled 1M+ in recovered revenue",
+      "Expanded active pipeline capacity across the analyst team",
+      "Human-in-the-loop design ensured quality control at scale",
     ],
   },
   {
-    title: "LLM Tribal Knowledge → Executable Recovery Playbooks (Sanitized)",
+    title: "LLM Tribal Knowledge → Executable Recovery Playbooks",
     id: "llm-playbooks",
     tldr:
-      "Led an LLM initiative to convert training material, SOPs, and analyst know‑how into structured recovery playbooks that improved consistency and onboarding, and informed an internal software overhaul.",
-    sections: [
-      {
-        heading: "Users",
-        bullets: ["Recovery analysts (primary)", "New hires (onboarding + consistency)", "Leadership (standardization/enablement)"],
-      },
-      {
-        heading: "Inputs (sanitized)",
-        bullets: [
-          "Training material + SOP documents",
-          "Transcribed call recordings (LLM transcription)",
-          "Historical claim note timelines",
-          "Optional time-based mapping between calls and claims (only when safe)",
-        ],
-      },
-      {
-        heading: "Outputs",
-        bullets: [
-          "Structured recovery playbooks (recommended actions, phone questions, scenario decision steps, escalation logic)",
-          "Basis for software improvements enabling similarity-based research on active claims (high-level)",
-        ],
-      },
-      {
-        heading: "Scale",
-        bullets: [
-          "Built to cover a large portion of denial reasons",
-          "Used repeatedly across claims daily to reduce dependence on a small set of experts",
-        ],
-      },
-      {
-        heading: "Guardrails",
-        bullets: [
-          "Constrained output formats (schemas/templates)",
-          "Prompt rules to avoid hallucinated policy",
-          "Iterative evaluation against known scenarios",
-          "Human review + feedback loop",
-        ],
-      },
+      "Led an LLM initiative to convert training material, SOPs, and analyst know-how into structured playbooks—improving consistency, accelerating onboarding, and informing a broader software overhaul.",
+    impact: [
+      "Reduced dependence on a small set of subject-matter experts",
+      "Improved onboarding speed and analyst consistency across denial types",
+      "Playbook outputs informed a similarity-based research feature in internal tooling",
     ],
-    notes:
-      "Specific recovery mechanics, client details, and internal SOP content are intentionally omitted.",
+    notes: "Specific recovery mechanics and internal SOP content are intentionally omitted.",
   },
   {
-    title: "Agent SDK / LLM Pipeline Foundation (Sanitized)",
+    title: "Agent SDK / LLM Pipeline Foundation",
     id: "agent-sdk",
     tldr:
-      "Designed a reusable Agent SDK foundation to standardize tool routing, prompt patterns, modular workflows, structured outputs, and observability across multiple LLM projects.",
-    sections: [
-      {
-        heading: "Users",
-        bullets: [
-          "Engineering/analytics teams building LLM workflows",
-          "Stakeholders relying on consistent output quality",
-        ],
-      },
-      {
-        heading: "Inputs (sanitized)",
-        bullets: [
-          "Structured internal records (claims + metadata)",
-          "Reference documents / training materials",
-          "Tool outputs (retrieval, lookups, validations)",
-        ],
-      },
-      {
-        heading: "Outputs",
-        bullets: [
-          "Reusable agent framework (tool interfaces + routing)",
-          "Shared prompt + schema conventions for deterministic structured outputs",
-          "Workflow composition primitives (steps, retries, fallbacks)",
-          "Logging/tracing hooks for observability",
-        ],
-      },
-      {
-        heading: "Scale",
-        bullets: [
-          "Built for multiple projects across teams (not one-offs)",
-          "Designed to extend as new use cases appear",
-        ],
-      },
-      {
-        heading: "Guardrails",
-        bullets: [
-          "Deterministic schemas + validation",
-          "Safe fallbacks + error handling",
-          "Strict tool permissions",
-          "Monitoring for drift/failure patterns",
-        ],
-      },
+      "Designed a reusable internal SDK to standardize tool routing, prompt patterns, structured outputs, and observability across multiple LLM projects—replacing one-off implementations with a shared foundation.",
+    impact: [
+      "Enabled faster, more consistent LLM project delivery across teams",
+      "Reduced prompt and schema drift through shared conventions",
+      "Built-in logging and tracing made failure patterns visible and actionable",
     ],
   },
   {
-    title: "Analyst KPI / Scorecard Architecture (Sanitized)",
+    title: "Analyst KPI / Scorecard Architecture",
     id: "kpi-scorecards",
     tldr:
-      "Built KPI/scorecard architecture tracking throughput, quality, recovery yield, and time-windowed trends across an analyst org—supporting coaching and operational decision-making.",
-    sections: [
-      {
-        heading: "Users",
-        bullets: ["Analysts", "BI/Ops leadership", "Managers (coaching + performance tracking)"],
-      },
-      {
-        heading: "Inputs (sanitized)",
-        bullets: [
-          "Claims worked + recovery outcomes",
-          "Throughput/time tracking signals",
-          "Denial reason mix",
-          "Aggregated payout/revenue results",
-        ],
-      },
-      {
-        heading: "Outputs",
-        bullets: [
-          "Scorecards: throughput, quality, recovery yield",
-          "Time-windowed performance + trend views",
-          "Rollups analyst → team → org",
-        ],
-      },
-      {
-        heading: "Scale",
-        bullets: ["Full analyst org coverage", "Recurring refresh cadence (daily/weekly)"],
-      },
-      {
-        heading: "Guardrails",
-        bullets: [
-          "Metric definitions locked + documented",
-          "Time-window controls",
-          "Anomaly checks",
-          "Separate volume vs quality to avoid broken incentives",
-        ],
-      },
+      "Built KPI and scorecard infrastructure tracking throughput, quality, and recovery yield across the analyst org—supporting coaching, operational decisions, and incentive-safe metric design.",
+    impact: [
+      "Gave leadership real-time visibility into analyst and team performance",
+      "Separated volume and quality metrics to prevent broken incentives",
+      "Rolled up from individual analysts to org-level with daily/weekly refresh",
     ],
   },
 ];
