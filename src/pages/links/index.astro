@@ -44,24 +44,18 @@ import { aiNews } from "../../data/aiNews";
     <div class="grid two">
       {aiNews.length ? (
         aiNews.slice(0, 12).map((item) => (
-          <a class="card link-card reveal" href={item.url} rel="noreferrer">
-            <div class="embed" style="margin-top: 0;">
-              <iframe
-                src={item.url}
-                title={item.title}
-                loading="lazy"
-              ></iframe>
+          <a class="card link-card reveal" href={item.url} target="_blank" rel="noreferrer noopener">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem;">
+              <h3 style="margin: 0 0 0.5rem;">{item.title}</h3>
+              <span style="font-size: 0.9rem; flex-shrink: 0; opacity: 0.5;">↗</span>
             </div>
-            <div style="margin-top: 14px;">
-              <h3>{item.title}</h3>
-              <p class="muted">{item.source}{item.date ? ` · ${item.date}` : ""}</p>
-            </div>
+            <p class="muted" style="margin: 0; font-size: 0.85rem;">{item.source}{item.date ? ` · ${item.date}` : ""}</p>
           </a>
         ))
       ) : (
         <div class="card reveal">
           <h3>No news items yet</h3>
-          <p class="muted">They’ll appear here after the weekly updater runs.</p>
+          <p class="muted">They'll appear here after the weekly updater runs.</p>
         </div>
       )}
     </div>
